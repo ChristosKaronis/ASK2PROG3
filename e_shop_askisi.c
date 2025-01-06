@@ -14,11 +14,12 @@ void initialize_shop(Shop *shop) {
         sprintf(shop->items[i].description, "%s_%d", base_names[name_index], name_counter[name_index]);
 
         // Dhmiourgia onomatos proiontos
+        shop->items[i].quantity =  2;  
+        shop->items[i].price = ((rand() % 100) + 1) * 0.5;
          printf("Initialized item: %s | Quantity: %d | Price: $%.2f\n", 
                shop->items[i].description, shop->items[i].quantity, shop->items[i].price);
          // Price na einai 2 kai i timi enas tuxaios arithmos apo 1-50
-        shop->items[i].quantity =  2;  
-        shop->items[i].price = ((rand() % 100) + 1) * 0.5; }
+         }
     shop->total_earnings = 0.0;
     shop->successful_orders = 0;
     shop->declined_orders = 0;
