@@ -51,10 +51,10 @@ int main (void){
 
     Shop eshop;
 
+    srand(time(NULL)); // Gia tuxaious arithmous
+
     // Arxikopoiisi tou struct shop
     initialize_shop(&eshop);
-
-    srand(time(NULL)); // Gia tuxaious arithmous
 
     // file descriptors gia ta pipe mas
     int pipefd[2];
@@ -100,7 +100,7 @@ int main (void){
     for (int i = 0; i < 50; i++) {  // Prepei na exoume 50 paraggelies
         Order order;
         read(pipefd[0], &order, sizeof(Order));
-        int price = process_order(&shop, &order);
+        int price = process_order(&eshop, &order);
         if (price > 0) {
             printf("Client %d: Order Successful for %s x%d. Total: $%.2f\n", i / 10 + 1, order.item_name, order.quantity, (float)price);
         } else {
@@ -116,15 +116,15 @@ int main (void){
 
     // Statistika ektelesis
     printf("\nTziros Shop :\n");
-    printf("Total Earnings: $%.2f\n", shop.total_earnings); // Sunolika esoda 
-    printf("Successful Orders: %d\n", shop.successful_orders); // epituximenes paraggelies
-    printf("Declined Orders: %d\n", shop.declined_orders); // apotuximenes paraggelies
+    printf("Total Earnings: $%.2f\n", eshop.total_earnings); // Sunolika esoda 
+    printf("Successful Orders: %d\n", eshop.successful_orders); // epituximenes paraggelies
+    printf("Declined Orders: %d\n", eshop.declined_orders); // apotuximenes paraggelies
 
     // Statistika antikeimenwn
     printf("\nStatistika Antikeimenwn:\n");
     for (int i = 0; i < 20; i++) {
         printf("%s: Sunolikes paraggelies = %d, Sold = %d, Unsuccessful Orders = %d\n", 
-               shop.items[i].description, shop.items[i].total_orders, shop.items[i].quantity_sold, shop.items[i].unsuccessful_orders);
+               eshop.items[i].description, eshop.items[i].total_orders, eshop.items[i].quantity_sold, eshop.items[i].unsuccessful_orders);
     }
     //Telos programmatos
     return 0;
