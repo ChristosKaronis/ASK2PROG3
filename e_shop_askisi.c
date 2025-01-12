@@ -103,9 +103,9 @@ int main (void){
         read(pipefd[0], &order, sizeof(Order));
         int price = process_order(&eshop, &order);
         if (price > 0) {
-            printf("Client %d: Order Successful for %s x%d. Total: $%.2f\n", i / 10 + 1, order.item_name, order.quantity, (float)price);
+            printf("Client %d: Order Successful for %s. Total: $%.2f\n", i / 10 + 1, order.item_name, (float)price);
         } else {
-            printf("Client %d: Order Declined for %s x%d.\n", i / 10 + 1, order.item_name, order.quantity);
+            printf("Client %d: Order Declined for %s.\n", i / 10 + 1, order.item_name);
         }
     }
 
