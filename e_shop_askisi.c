@@ -26,7 +26,7 @@ void initialize_shop(Shop *shop) {
 
 }
 
-// Paraggelia gia th thugatriki diergasia
+// Paraggelia gia th thugatriki diergasiaa
 int process_order(Shop *shop, Order *order) {
     for (int i = 0; i < 20; i++) {
         if (strcmp(shop->items[i].description, order->item_name) == 0) {
