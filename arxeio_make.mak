@@ -11,7 +11,7 @@ SRC = e_shop_askisi.c
 TARGET = e_shop
 
 # Default rule to build the executable
-	$(TARGET): $(SRC) e_shop.h
+$(TARGET): $(SRC) e_shop.h
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
 # Rule to clean up build files
