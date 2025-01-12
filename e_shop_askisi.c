@@ -69,7 +69,7 @@ int main (void){
         exit(EXIT_FAILURE);}
 
     for (int client_id = 1; client_id <= 5; client_id++) {
-        pid_t pid = fork();
+        pid = fork();
         if (pid < 0) {
             // Lathos tis fork
             perror("Fork() apetixe!!");
